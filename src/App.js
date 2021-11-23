@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { Link,Switch,  } from "react-router-dom";
+import {
+  Router,
+Route,
+} from "react-router";
+
+import PostsWithAxios from './PostsWithAxios'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+     <div className="App">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home (Default with Fetch Api Example)</Link>
+          </li>
+  
+          <li>
+            <Link to="/axios">Click Here - Posts With Axios Example</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+      
+        <Route path="/axios">
+          <PostsWithAxios />
+        </Route>
+        
+      </Switch>
     </div>
+  </Router>
   );
 }
-
 export default App;
